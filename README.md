@@ -3,11 +3,11 @@
 
 一个简单的Laravel 图形验证码服务提供商。
 
-## Preview
+## 预览
 ![Preview](https://image.ibb.co/kZxMLm/image.png)
 
-- [Captcha for Laravel 5/6/7](#captcha-for-laravel-5-6-7)
-  * [Preview](#preview)
+- [Laravel Captcha](#captcha-for-laravel-5-6-7)
+  * [预览](#preview)
   * [Installation](#installation)
   * [Usage](#usage)
   * [Configuration](#configuration)
@@ -20,37 +20,14 @@
 - [To use different configurations](#to-use-different-configurations)
   * [Links](#links)
   
-## Installation
+## 安装
 
-The Captcha Service Provider can be installed via [Composer](http://getcomposer.org) by requiring the
-`mews/captcha` package and setting the `minimum-stability` to `dev` (required for Laravel 5) in your
-project's `composer.json`.
-
-```json
-{
-    "require": {
-        "laravel/framework": "5.0.*",
-        "mews/captcha": "~2.0"
-    },
-    "minimum-stability": "dev"
-}
+使用 composer 安装
+```
+composer require superpx-cn/laravel-captcha
 ```
 
-or
-
-Require this package with composer:
-```
-composer require mews/captcha
-```
-
-Update your packages with ```composer update``` or install with ```composer install```.
-
-In Windows, you'll need to include the GD2 DLL `php_gd2.dll` in php.ini. And you also need include `php_fileinfo.dll` and `php_mbstring.dll` to fit the requirements of `mews/captcha`'s dependencies.
-
-
-
-
-## Usage
+## 使用
 
 To use the Captcha Service Provider, you must register the provider when bootstrapping your Laravel application. There are
 essentially two ways to do this.
@@ -134,12 +111,16 @@ return [
         return $form;
     });
 ```
-### Stateless Mode:
-You get key and img from this url
-`http://localhost/captcha/api/math`
-and verify the captcha using this method:
+### 无状态模式:
+你可以使用 助手函数 `captcha()` 来生成一个验证码 
+`captcha()` 方法将会返回一个数组，其中包含了：
+- sensitive
+- key: 验证码的标识
+- img: 验证码的 `base64`编码
+
+并且使用次方法检查验证码
 ```php
-    //key is the one that you got from json response
+    // key is the one that you got from json response
     // fix validator
     // $rules = ['captcha' => 'required|captcha_api:'. request('key')];
     $rules = ['captcha' => 'required|captcha_api:'. request('key') . ',math'];
