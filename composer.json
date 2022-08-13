@@ -1,11 +1,17 @@
 {
-	"name": "mews/captcha",
+	"name": "superpx-cn/laravel-captcha",
 	"type": "package",
-	"description": "Laravel 5 & 6 Captcha Package",
-	"keywords": ["laravel6 Captcha", "laravel6 Security", "laravel6 Captcha", "laravel5 Security", "Captcha"],
-	"homepage": "https://github.com/mewebstudio/captcha",
+	"description": "Laravel Captcha Package",
+	"keywords": ["laravel Captcha", "laravel Security", "laravel Captcha", "laravel Security", "Captcha"],
+	"homepage": "https://github.com/SuperPx-CN/laravel-captcha",
 	"license": "MIT",
 	"authors": [
+        {
+            "name": "SuperPx",
+            "email": "160484842@qq.com",
+            "homepage": "https://github.com/SuperPx-CN",
+            "role": "Developer"
+        },
 		{
 			"name": "Muharrem ERİN",
 			"email": "me@mewebstudio.com",
